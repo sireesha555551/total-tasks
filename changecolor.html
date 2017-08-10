@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>change color</title>
+	<style type="text/css">
+		#background{
+			width: 100%;
+			height:646px;
+		}
+	</style>
+</head>
+<body>
+<div id="background">&nbsp</div>
+	
+</div>
+<script type="text/javascript">
+	 var i = 0;
+	function change() {
+	  var doc = document.getElementById("background");
+	  var color = ["pink", "green", "lightblue", "grey"];
+	  doc.style.backgroundColor = color[i];
+	  i = (i + 1) % color.length;
+	}
+	setInterval(change, 1000);
+
+</script>
+</body>
+</html>
