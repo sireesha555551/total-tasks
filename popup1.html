@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery</title>
+	  <style type="text/css">
+	  
+	  .imagepop img{	
+	  	height:250px;
+	  }
+	  .popup{
+	    display: none; /* Hidden by default */
+	    position: absolute; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    padding-top: 100px; /* Location of the box */
+	    left: 0p
+	    top: 0px;
+	    width: 100%; /* Full width */
+	    height: 100%; /* Full height */
+	    overflow: scroll;
+	  
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	 }
+
+	  .pop-content img{
+	  	width:100%;
+      position: relative;
+	  	
+	  }
+	  .pop-content {
+	    margin: auto;
+	    padding: 20px;
+	    width: 80%;
+}
+    img{
+      float: left;
+      padding: 10px;
+  }
+    h1{
+      text-align: center;
+  }
+</style>
+<script>
+//popup image
+function openPopUp(p){
+	document.getElementById('popup').style.display="block";
+	// console.log(p);
+	document.getElementById('popimg').src=p;
+
+}
+
+window.onclick = function(e) {
+	console.log(e.target);
+    if (e.target == document.getElementById('popup')) {
+        document.getElementById('popup').style.display = "none";
+    }
+}
+
+
+ window.onload = function() {
+        var obj = document.getElementsByClassName('viewimg');
+        for(var i = 0; i < obj.length; i++) {
+            var o = obj[i];
+            o.onclick = function() {
+                openPopUp(this.src);
+            }
+        }
+    }
+    function move(e){
+      var x=e.clientX;
+      var y=e.clientY;
+      var img =document.getElementById('popimg')
+      img.style.left=x+"px";
+      img.style.top=y+"px";
+    }
+    
+
+
+ 
+</script>
+</head>
+<body>
+<div class="head">
+    <h1>PHOTO GALLERY</h1>
+  </div>
+</div>
+<div class="container">    
+  <div class="row">
+    <div class="imagepop">
+	  <a href="#"><img src="s.jpg" class="viewimg"></a>
+    </div>
+    <div class="imagepop">
+      <a href="#"><img src="ss.jpg" class="viewimg"></a>
+    </div>
+    <div class="imagepop">
+      <a href="#"><img src="sss.jpg" class="viewimg"></a>
+    </div>
+    <div class="imagepop">
+      <a href="#"><img src="r.jpg" class="viewimg"></a>
+    </div>
+    <div class="imagepop">
+      <a href="#"><img src="rr.jpg" class="viewimg"></a>
+    </div>
+    <div class="imagepop">
+      <a href="#"><img src="rrr.jpg" class="viewimg"></a>
+    </div>
+    
+  </div>
+</div>
+<div class="popup" id="popup" onmousemove="move(event)">
+
+<div class="pop-content">
+<img src='' id="popimg">
+
+
+</div> 
+
+
+</div>
+</body>			
+</html>

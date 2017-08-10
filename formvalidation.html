@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form validation</title>
+	<style type="text/css">
+		.form1{
+			width: auto;
+			overflow: auto; 
+			text-align: center;
+			background: pink;
+		}
+	</style>
+</head>
+<body onLoad='document.f1.FirstName.focus()'>
+<form name="f1">
+<div class="form1">
+<fieldset>
+<h1>Registration Form</h1>
+	FirstName:<br><input type="text" name="FirstName" placeholder="FirstName"><br>
+	Email:<br><input type="text" name="Email" placeholder="Email"><br>
+	ConformEmail:<br><input type="text" name="ConformEmail" placeholder="ConformEmail"><br>
+	Password:<br><input type="Password" name="Password" placeholder="Password"><br>
+	ConformPassword:<br><input type="Password" name="ConformPassword" placeholder="ConformPassword"><br>
+	PhoneNo:<br><input type="text" name="PhoneNo" placeholder="PhoneNo"><br>
+	<input type="CheckBox" name="CheckBox">I agree this terms and conditions<br><br>
+	<input type="reset" name="reset" onclick="f()"/>
+	<input type="submit" name="SubmitButton" onclick="f()"/>
+	</fieldset>
+</div>
+</form>
+<script type="text/javascript">
+function f(){
+	var emailExp = /^[\w\_\.]+\@[a-zA-Z0-9]+\.[a-zA-z0-9]{2,3}$/;
+	var phnoExp=/^[0-9]{10}$/;
+	if(document.f1.FirstName.value.length<6)
+	{
+	alert("User Name should be atleast 6 characters");
+	document.f1.FirstName.focus();
+	return false;
+	}
+	else if(!(document.f1.Email.value.match(emailExp)))
+	{
+	alert("Mail id is not valid");
+	document.f1.Email.focus();
+	return false;
+	}
+	else if(document.f1.Password.value.length<6)
+	{
+	alert("Password should be atleast 6 characters");
+	document.f1.Password.value="";
+	document.f1.Password.focus();
+	return false;
+	}
+
+	else if(!(document.f1.PhoneNo.value.match(phnoExp)))
+	{
+	alert("Phone number is not valid");
+	document.f1.PhoneNo.focus();
+	return false;
+	}
+
+}
+
+	
+</script>
+</body>
+</html>
